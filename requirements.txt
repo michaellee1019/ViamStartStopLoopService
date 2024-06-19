@@ -1,0 +1,3 @@
+viam-sdk
+pyinstaller
+git+https://github.com/viam-labs/1liner
