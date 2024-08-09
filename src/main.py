@@ -3,7 +3,7 @@ import asyncio
 from viam.services.generic import Generic
 from viam.module.module import Module
 from viam.resource.registry import Registry, ResourceCreatorRegistration
-from models import ExampleService, StartStopLoopService
+from models import ExampleService, MotorRevolutionsOscillation
 
 
 async def main():
@@ -16,9 +16,16 @@ async def main():
         Generic.SUBTYPE,
         ExampleService.MODEL,
         ResourceCreatorRegistration(ExampleService.new, ExampleService.validate_config))
+    
+    Registry.register_resource_creator(
+        Generic.SUBTYPE,
+        MotorRevolutionsOscillation.MODEL,
+        ResourceCreatorRegistration(MotorRevolutionsOscillation.new, MotorRevolutionsOscillation.validate_config))
     module = Module.from_args()
+    
 
     module.add_model_from_registry(Generic.SUBTYPE, ExampleService.MODEL)
+    module.add_model_from_registry(Generic.SUBTYPE, MotorRevolutionsOscillation.MODEL)
     await module.start()
 
 if __name__ == "__main__":

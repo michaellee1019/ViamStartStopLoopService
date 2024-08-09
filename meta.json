@@ -1,12 +1,16 @@
 {
-  "module_id": "michaellee1019:mpr121",
+  "module_id": "michaellee1019:kinetic-art-service",
   "visibility": "private",
   "url": "https://github.com/michaellee1019/mpr121",
-  "description": "A Viam module that returns sensor values from a capacitive touch sensor with the MPR121 chip.",
+  "description": "A Viam module that provides oscillation of a motor for use in any project that requires continous repeated control of a motor",
   "models": [
     {
-	"api": "rdk:component:sensor",
-      "model": "michaellee1019:mpr121:mpr121"
+	    "api": "rdk:service:generic",
+      "model": "michaellee1019:startstopservice:example"
+    },
+    {
+	    "api": "rdk:service:generic",
+      "model": "michaellee1019:kinetic-art-service:stepper-oscillation"
     }
   ],
   "build": {
@@ -14,5 +18,5 @@
     "path": "dist/archive.tar.gz",
     "arch" : ["linux/arm64", "linux/amd64"]
   },
-  "entrypoint": "dist/models"
+  "entrypoint": "dist/main"
 }
