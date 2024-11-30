@@ -13,10 +13,11 @@
       "model": "michaellee1019:kinetic-art-service:stepper-oscillation"
     }
   ],
+  "entrypoint": "reload.sh",
+  "first_run": "",
   "build": {
-    "build": "sh build.sh",
-    "path": "dist/archive.tar.gz",
-    "arch" : ["linux/arm64", "linux/amd64"]
-  },
-  "entrypoint": "dist/main"
+    "build": "rm -f module.tar.gz && tar czf module.tar.gz requirements.txt src/*.py meta.json setup.sh reload.sh",
+    "setup": "./setup.sh",
+    "path": "module.tar.gz"
+  }
 }

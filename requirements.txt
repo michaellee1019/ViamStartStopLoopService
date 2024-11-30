@@ -1,3 +1,1 @@
-viam-sdk
-pyinstaller
-git+https://github.com/viam-labs/1liner
+viam-sdk==0.34.0
